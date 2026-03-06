@@ -1,0 +1,282 @@
+/*
+    style.css
+
+    The design philosophy here: typography and space do all the work.
+    No cards, no boxes, no grids. Just good fonts, generous margins,
+    and small details that show someone cared.
+*/
+
+/* === RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === PAGE === */
+body {
+    /*
+        Newsreader is a warm, slightly literary serif.
+        It feels more personal than Georgia — like a book
+        you'd actually want to read.
+    */
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    color: #3a3a3a;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+
+    /*
+        A very faint warm background — not white (too sterile),
+        not beige (too corporate). Something in between, like paper.
+    */
+    background-color: #faf9f6;
+}
+
+/*
+    The .page wrapper constrains everything and centers it.
+    The max-width is narrow — this is a reading experience,
+    not a dashboard.
+*/
+.page {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+
+/* === NAVIGATION === */
+/*
+    The nav is deliberately quiet. Just a few words at the top
+    of the page, like a table of contents. No bar, no background,
+    no visual weight.
+*/
+header {
+    padding: 40px 0 0 0;
+    margin-bottom: 56px;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+}
+
+nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaa;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #3a3a3a;
+}
+
+/*
+    The active page link is dark and has a small underline
+    offset below it — subtle but clear.
+*/
+nav a.active {
+    color: #3a3a3a;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: #bbb;
+}
+
+
+/* === MAIN CONTENT === */
+.content {
+    padding-bottom: 40px;
+}
+
+
+/* === HEADINGS === */
+/*
+    h1 is large and light-weight. The 300 font-weight gives
+    it an elegant, understated feel — confident without shouting.
+*/
+h1 {
+    font-size: 42px;
+    font-weight: 300;
+    color: #2a2a2a;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+/*
+    h2 marks sections within a page.
+    Using the serif font at a modest size keeps them
+    integrated with the text rather than feeling like labels.
+*/
+h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #2a2a2a;
+    margin-bottom: 12px;
+    margin-top: 4px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 500;
+    font-style: italic;
+    color: #3a3a3a;
+    margin-bottom: 4px;
+}
+
+
+/* === TEXT === */
+p {
+    margin-bottom: 16px;
+}
+
+/*
+    The "lead" paragraph — the first line under the title.
+    Slightly larger, slightly lighter, sets the tone.
+*/
+.lead {
+    font-size: 19px;
+    color: #666;
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+/*
+    Quiet text — for things like the contact line at the bottom.
+    De-emphasized but still present.
+*/
+.quiet {
+    color: #888;
+    font-size: 16px;
+}
+
+/*
+    Meta text — dates, affiliations, short context.
+    Uses the sans-serif font to visually separate it
+    from the body text.
+*/
+.meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 12px;
+    letter-spacing: 0.2px;
+}
+
+
+/* === DIVIDERS === */
+/*
+    A thin centered line used to separate thoughts.
+    Short (80px) so it feels like a breath, not a wall.
+*/
+.divider {
+    width: 80px;
+    height: 1px;
+    background-color: #ddd;
+    margin: 36px 0;
+}
+
+
+/* === LINKS === */
+/*
+    Links use a muted teal color — warm but distinct from
+    the body text. The underline is lighter and sits below
+    the text so it doesn't crowd the letters.
+*/
+a {
+    color: #4a7c72;
+    text-decoration: underline;
+    text-decoration-color: #b8d4ce;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    color: #3a5f58;
+    text-decoration-color: #4a7c72;
+}
+
+
+/* === CV ENTRIES === */
+/*
+    These are only used on the CV page.
+    A clean layout with the title on the left and date on the right.
+*/
+.cv-entry {
+    margin-bottom: 24px;
+}
+
+.cv-entry:last-child {
+    margin-bottom: 0;
+}
+
+.cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.cv-entry-title {
+    font-weight: 500;
+    color: #2a2a2a;
+    font-size: 17px;
+}
+
+.cv-entry-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #aaa;
+    letter-spacing: 0.2px;
+}
+
+.cv-entry-detail {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 0;
+}
+
+
+/* === FOOTER === */
+/*
+    Barely there. Just a year, almost invisible.
+*/
+footer {
+    padding: 32px 0 48px 0;
+    border-top: 1px solid #eee;
+    margin-top: 24px;
+}
+
+footer span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+}
+
+
+/* === RESPONSIVE === */
+@media (max-width: 520px) {
+    .page {
+        padding: 0 20px;
+    }
+
+    header {
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .cv-entry-header {
+        flex-direction: column;
+        gap: 0;
+    }
+}
