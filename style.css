@@ -31,7 +31,7 @@ body {
     But .narrow keeps prose readable.
 */
 .wrap {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 40px;
 }
@@ -159,11 +159,6 @@ body {
 
 
 /* === GRID LAYOUT === */
-/*
-    A two-column layout that's NOT perfectly balanced.
-    The left column is wider — it's the main content.
-    The right is a sidebar for notes, asides, smaller things.
-*/
 .two-col {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
@@ -210,10 +205,6 @@ body {
 
 
 /* === ASIDE / SIDEBAR NOTES === */
-/*
-    These are the small boxes that sit in the sidebar.
-    They feel like sticky notes or margin scribbles.
-*/
 .aside-box {
     background-color: #eae7e0;
     padding: 20px 24px;
@@ -243,10 +234,6 @@ body {
 
 
 /* === INTERESTS / PERSONAL GRID === */
-/*
-    A looser grid for personal stuff — interests, photos, notes.
-    Each item has a visible border so it feels like a pinboard.
-*/
 .pin-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -288,11 +275,6 @@ body {
 
 
 /* === PHOTO PLACEHOLDERS === */
-/*
-    Empty boxes where you'll add your own images.
-    Replace the background-color with an actual <img> tag
-    when you have photos.
-*/
 .photo-slot {
     background-color: #e0ddd5;
     border: 1px solid #ccc;
@@ -318,10 +300,6 @@ body {
 
 
 /* === CALLOUT === */
-/*
-    A big highlighted block for something important
-    or personal — a quote, a thought, a mission statement.
-*/
 .callout {
     background-color: #2a2a2a;
     color: #e8e5df;
@@ -398,22 +376,13 @@ p {
     display: block;
 }
 
-/*
-    Add class="post-img-side" to an <img> to make it
-    float to the right of your text, smaller.
-    Text will wrap around it.
-*/
-.post-img-side {
+.post .post-img-side {
     width: 280px;
     float: right;
     margin: 4px 0 16px 24px;
 }
 
-/*
-    Add class="post-img-small" to an <img> to make it
-    smaller but still centered under the text.
-*/
-.post-img-small {
+.post .post-img-small {
     width: 400px;
     max-width: 100%;
     margin: 16px auto;
