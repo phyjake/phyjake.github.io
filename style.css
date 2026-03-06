@@ -1,442 +1,136 @@
-/*
-    style.css
-    
-    Philosophy: this should feel like someone's actual space on the internet.
-    Not a template. Not polished. Alive.
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-::selection {
-    background: #c4ddd8;
-}
-
-body {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 17px;
-    color: #2a2a2a;
-    background-color: #f4f1ec;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-}
-
-
-/* === LAYOUT === */
-/*
-    Wider than before — uses the screen.
-    But .narrow keeps prose readable.
-*/
-.wrap {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.narrow {
-    max-width: 640px;
-}
-
-
-/* === TOP BAR === */
-.topbar {
-    border-bottom: 2px solid #2a2a2a;
-    padding: 16px 0;
-    margin-bottom: 0;
-}
-
-.topbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.site-name {
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    font-weight: 700;
-    color: #2a2a2a;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.topbar nav {
-    display: flex;
-    gap: 8px;
-}
-
-.topbar nav a {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: #2a2a2a;
-    text-decoration: none;
-    padding: 4px 12px;
-    border: 1px solid transparent;
-    letter-spacing: 0.5px;
-    transition: border-color 0.2s;
-}
-
-.topbar nav a:hover {
-    border-color: #2a2a2a;
-}
-
-.topbar nav a.active {
-    border: 1px solid #2a2a2a;
-}
-
-
-/* === HERO === */
-.hero {
-    padding: 60px 0 48px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.hero h1 {
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 1.1;
-    color: #1a1a1a;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-}
-
-.hero h1 em {
-    font-style: italic;
-    font-weight: 300;
-}
-
-.hero-subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    color: #888;
-    letter-spacing: 0.5px;
-    margin-bottom: 24px;
-}
-
-.hero-bio {
-    font-size: 19px;
-    color: #555;
-    max-width: 640px;
-    font-weight: 300;
-}
-
-
-/* === SECTIONS === */
-.section {
-    padding: 48px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.section:last-child {
-    border-bottom: none;
-}
-
-.section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 28px;
-}
-
-.section-title {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #2a2a2a;
-}
-
-.section-line {
-    flex: 1;
-    height: 1px;
-    background-color: #ccc;
-}
-
-
-/* === GRID LAYOUT === */
-/*
-    A two-column layout that's NOT perfectly balanced.
-    The left column is wider — it's the main content.
-    The right is a sidebar for notes, asides, smaller things.
-*/
-.two-col {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.three-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-}
-
-
-/* === ENTRIES === */
-.entry {
-    margin-bottom: 32px;
-}
-
-.entry:last-child {
-    margin-bottom: 0;
-}
-
-.entry-title {
-    font-size: 20px;
-    font-weight: 500;
-    color: #2a2a2a;
-    margin-bottom: 4px;
-}
-
-.entry-meta {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: #999;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.entry-text {
-    color: #555;
-    font-size: 16px;
-}
-
-
-/* === ASIDE / SIDEBAR NOTES === */
-/*
-    These are the small boxes that sit in the sidebar.
-    They feel like sticky notes or margin scribbles.
-*/
-.aside-box {
-    background-color: #eae7e0;
-    padding: 20px 24px;
-    margin-bottom: 16px;
-    border-left: 3px solid #2a2a2a;
-}
-
-.aside-box:last-child {
-    margin-bottom: 0;
-}
-
-.aside-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #999;
-    margin-bottom: 8px;
-}
-
-.aside-content {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.65;
-}
-
-
-/* === INTERESTS / PERSONAL GRID === */
-/*
-    A looser grid for personal stuff — interests, photos, notes.
-    Each item has a visible border so it feels like a pinboard.
-*/
-.pin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-}
-
-.pin {
-    border: 1px solid #ccc;
-    padding: 20px 24px;
-    background-color: #fff;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.pin:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-}
-
-.pin-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #aaa;
-    margin-bottom: 8px;
-}
-
-.pin-text {
-    font-size: 15px;
-    color: #444;
-    line-height: 1.6;
-}
-
-.pin-text em {
-    font-style: italic;
-    color: #888;
-}
-
-
-/* === PHOTO PLACEHOLDERS === */
-/*
-    Empty boxes where you'll add your own images.
-    Replace the background-color with an actual <img> tag
-    when you have photos.
-*/
-.photo-slot {
-    background-color: #e0ddd5;
-    border: 1px solid #ccc;
-    aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.photo-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.photo-slot .placeholder-text {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: #aaa;
-    letter-spacing: 0.5px;
-}
-
-
-/* === CALLOUT === */
-/*
-    A big highlighted block for something important
-    or personal — a quote, a thought, a mission statement.
-*/
-.callout {
-    background-color: #2a2a2a;
-    color: #e8e5df;
-    padding: 40px 48px;
-    margin: 48px 0;
-    font-size: 20px;
-    line-height: 1.7;
-    font-weight: 300;
-}
-
-.callout strong {
-    color: #fff;
-    font-weight: 500;
-}
-
-
-/* === LINKS === */
-a {
-    color: #4a7c72;
-    text-decoration: underline;
-    text-decoration-color: #b8d4ce;
-    text-underline-offset: 3px;
-    transition: text-decoration-color 0.3s;
-}
-
-a:hover {
-    text-decoration-color: #4a7c72;
-}
-
-
-/* === TEXT UTILITIES === */
-p {
-    margin-bottom: 14px;
-}
-
-.mono {
-    font-family: 'Space Mono', monospace;
-}
-
-.small {
-    font-size: 14px;
-}
-
-.muted {
-    color: #999;
-}
-
-
-/* === FOOTER === */
-footer {
-    padding: 24px 0 48px 0;
-    border-top: 2px solid #2a2a2a;
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-footer span {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: #aaa;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-footer nav {
-    display: flex;
-    gap: 16px;
-}
-
-footer nav a {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: #aaa;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-footer nav a:hover {
-    color: #2a2a2a;
-}
-
-
-/* === RESPONSIVE === */
-@media (max-width: 720px) {
-    .wrap {
-        padding: 0 20px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-    .two-col {
-        grid-template-columns: 1fr;
-    }
-
-    .three-col {
-        grid-template-columns: 1fr;
-    }
-
-    .callout {
-        padding: 28px 24px;
-        font-size: 18px;
-    }
-
-    .topbar-inner {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 12px;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV · Jake Hooning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="wrap">
+            <div class="topbar-inner">
+                <a href="index.html" class="site-name">Jake Hooning</a>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="research.html">Research</a>
+                    <a href="cv.html" class="active">CV</a>
+                    <a href="colophon.html">Colophon</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap">
+
+        <div class="hero">
+            <p class="hero-subtitle">The formal version</p>
+            <h1>CV</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Education</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="entry">
+                <p class="entry-title">University of Colorado Denver</p>
+                <p class="entry-meta">B.S. Physics · B.S. Mathematics (planned) · Expected Dec 2028</p>
+                <p class="entry-text">
+                    Double major focused on building a foundation for theoretical
+                    physics. Currently in my second year.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Research</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="entry">
+                <p class="entry-title">Undergraduate Research Assistant</p>
+                <p class="entry-meta">AMO Physics Research Group · CU Denver · Present</p>
+                <p class="entry-text">
+                    Modeling the atomic structure of xenon using the
+                    Dirac-Hartree-Fock method.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Teaching</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="entry">
+                <p class="entry-title">Learning Assistant — Physics 2</p>
+                <p class="entry-meta">University of Colorado Denver · Present</p>
+                <p class="entry-text">
+                    Supporting students in introductory E&M — circuits,
+                    Gauss's law, Kirchhoff's laws.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Presentations</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="entry">
+                <p class="entry-title">Science as a Mechanism for Cultural Evolution</p>
+                <p class="entry-meta">Western Regional Honors Conference · 2025</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Memberships</span>
+                <div class="section-line"></div>
+            </div>
+            <p class="entry-text">
+                Society of Physics Students (SPS)<br>
+                American Physical Society (APS)
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Selected Coursework</span>
+                <div class="section-line"></div>
+            </div>
+            <p class="entry-text">
+                Thermal Physics · Modern Physics · Linear Algebra &
+                Differential Equations
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Contact</span>
+                <div class="section-line"></div>
+            </div>
+            <p class="entry-text">
+                <a href="mailto:you@example.com">Email</a> ·
+                <a href="https://github.com/phyjake">GitHub</a>
+            </p>
+        </div>
+
+        <footer>
+            <span>2026</span>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="cv.html">CV</a>
+                <a href="colophon.html">Colophon</a>
+            </nav>
+        </footer>
+
+    </div>
+
+</body>
+</html>
