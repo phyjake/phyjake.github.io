@@ -351,6 +351,10 @@ p {
 /* === BLOG POSTS === */
 .post {
     max-width: 640px;
+    overflow: hidden;
+    /* overflow: hidden forces the post container to wrap
+       around floated images, so they can't bleed into
+       the next section */
 }
 
 .post-date {
@@ -377,9 +381,17 @@ p {
 }
 
 .post .post-img-side {
-    width: 280px;
+    width: 220px;
+    max-height: 300px;
+    object-fit: cover;
     float: right;
     margin: 4px 0 16px 24px;
+    /*
+        max-height caps how tall the image can get.
+        object-fit: cover means if the image is taller than 300px,
+        it crops to fit rather than squishing. Change 300px
+        to whatever feels right.
+    */
 }
 
 .post .post-img-small {
