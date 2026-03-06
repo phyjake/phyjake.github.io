@@ -398,6 +398,28 @@ p {
     display: block;
 }
 
+/*
+    Add class="post-img-side" to an <img> to make it
+    float to the right of your text, smaller.
+    Text will wrap around it.
+*/
+.post-img-side {
+    width: 280px;
+    float: right;
+    margin: 4px 0 16px 24px;
+}
+
+/*
+    Add class="post-img-small" to an <img> to make it
+    smaller but still centered under the text.
+*/
+.post-img-small {
+    width: 400px;
+    max-width: 100%;
+    margin: 16px auto;
+    display: block;
+}
+
 
 /* === FOOTER === */
 footer {
