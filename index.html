@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Hooning</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* === RESET === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*
+            scroll-behavior: smooth makes clicking a nav link
+            glide to the section instead of jumping instantly.
+            This is pure CSS — no JavaScript needed.
+        */
+        html {
+            scroll-behavior: smooth;
+
+            /*
+                scroll-padding-top adds invisible space at the top
+                so sections aren't hidden behind the sticky nav
+                when you click a link.
+            */
+            scroll-padding-top: 64px;
+        }
+
+        /* === PAGE === */
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 17px;
+            color: #2d2d2d;
+            background-color: #fdfdfc;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+
+        /* === NAVIGATION === */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #fdfdfc;
+            border-bottom: 1px solid #e8e6e1;
+            z-index: 10;
+        }
+
+        .nav-inner {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 16px 32px;
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2d2d2d;
+        }
+
+
+        /* === HERO / INTRO === */
+        .hero {
+            padding: 72px 0 56px 0;
+            border-bottom: 1px solid #e8e6e1;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #999;
+            letter-spacing: 0.3px;
+            margin-bottom: 32px;
+        }
+
+        .hero .bio {
+            color: #4a4a4a;
+            font-size: 17px;
+            max-width: 600px;
+        }
+
+        .hero .bio p + p {
+            margin-top: 16px;
+        }
+
+
+        /* === SECTIONS === */
+        .section {
+            padding: 48px 0;
+            border-bottom: 1px solid #e8e6e1;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: #aaa;
+            margin-bottom: 28px;
+        }
+
+
+        /* === ENTRIES === */
+        .entry {
+            margin-bottom: 32px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin-bottom: 2px;
+        }
+
+        .entry-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .entry-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+
+        /* === SIMPLE LIST === */
+        .simple-list {
+            font-size: 16px;
+            color: #555;
+            line-height: 2;
+        }
+
+
+        /* === CONTACT LINKS === */
+        .contact-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2d2d2d;
+            text-decoration: none;
+            padding-bottom: 1px;
+            border-bottom: 1px solid #ccc;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: #000;
+            border-color: #000;
+        }
+
+
+        /* === FOOTER === */
+        footer {
+            padding: 24px 0 48px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #ccc;
+            letter-spacing: 0.3px;
+        }
+
+
+        /* === RESPONSIVE === */
+        @media (max-width: 520px) {
+            .nav-inner {
+                padding: 14px 20px;
+                gap: 16px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 40px 0 36px 0;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .section {
+                padding: 36px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- === NAV === -->
+    <!--
+        The nav has four clickable links that scroll to sections.
+        The href="#about" means "scroll to the element with id="about"."
+    -->
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#cv">CV</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <!-- === ABOUT === -->
+        <div class="hero" id="about">
+            <h1>Jake Hooning</h1>
+            <p class="tagline">Physics & Mathematics · University of Colorado Denver</p>
+            <div class="bio">
+                <p>
+                    I'm an undergraduate studying physics and mathematics at CU Denver.
+                    I'm interested in theoretical physics — particularly the questions about
+                    spacetime and reality that sit at the edges of what we understand.
+                </p>
+                <p>
+                    Right now I'm doing research in atomic physics, working as a learning
+                    assistant for Physics 2, and trying to build a strong foundation in
+                    math and physics from the ground up.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- === RESEARCH === -->
+        <div class="section" id="research">
+            <p class="section-label">Research</p>
+            <div class="entry">
+                <p class="entry-title">Atomic Structure of Xenon</p>
+                <p class="entry-meta">AMO Physics Research Group · CU Denver · Present</p>
+                <p class="entry-description">
+                    Modeling the atomic structure of xenon using the Dirac-Hartree-Fock
+                    method — a computational approach to the relativistic many-electron
+                    problem, describing how electrons behave in a heavy atom where
+                    relativistic effects can't be ignored.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- === PRESENTATIONS === -->
+        <div class="section">
+            <p class="section-label">Presentations</p>
+            <div class="entry">
+                <p class="entry-title">Science as a Mechanism for Cultural Evolution</p>
+                <p class="entry-meta">Western Regional Honors Conference · 2025</p>
+                <p class="entry-description">
+                    Exploring how scientific ideas have shaped what we understand
+                    as "truth," and the role science plays in cultural evolution
+                    more broadly.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- === CV === -->
+        <div class="section" id="cv">
+            <p class="section-label">Education</p>
+            <div class="entry">
+                <p class="entry-title">University of Colorado Denver</p>
+                <p class="entry-meta">B.S. Physics · B.S. Mathematics (planned) · Expected December 2028</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <p class="section-label">Teaching</p>
+            <div class="entry">
+                <p class="entry-title">Learning Assistant — Physics 2</p>
+                <p class="entry-meta">University of Colorado Denver · Present</p>
+                <p class="entry-description">
+                    Supporting students in introductory electricity and magnetism,
+                    including circuits, Gauss's law, and Kirchhoff's laws.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <p class="section-label">Memberships</p>
+            <p class="simple-list">
+                Society of Physics Students (SPS)<br>
+                American Physical Society (APS)
+            </p>
+        </div>
+
+        <div class="section">
+            <p class="section-label">Coursework</p>
+            <p class="simple-list">
+                Thermal Physics · Modern Physics · Linear Algebra & Differential Equations
+            </p>
+        </div>
+
+
+        <!-- === CONTACT === -->
+        <div class="section" id="contact">
+            <p class="section-label">Contact</p>
+            <div class="contact-links">
+                <a href="mailto:you@example.com">Email</a>
+                <a href="https://github.com/yourusername">GitHub</a>
+            </div>
+        </div>
+
+
+        <footer>
+            2026
+        </footer>
+
+    </div>
+
+</body>
+</html>
